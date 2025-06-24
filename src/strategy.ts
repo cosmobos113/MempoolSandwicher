@@ -1,8 +1,9 @@
 import { ethers } from 'ethers';
 import { submitBundle } from './flashbots';
 import { estimateGasPrice } from './gasManager';
+import { Provider, TransactionResponse } from 'ethers';
 
-export async function onTransaction(tx: ethers.TransactionResponse, provider: ethers.Provider) {
+export async function onTransaction(tx: TransactionResponse, provider: Provider) {
 
   // Exemplu: filtrează doar contractul Uniswap V2 Factory
   if (tx.to?.toLowerCase() !== '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f') return;
