@@ -4,7 +4,8 @@ import { FlashbotsBundleProvider } from '@flashbots/ethers-provider-bundle';
 export async function submitBundle(
   txs: Array<ethers.TransactionRequest>,
   gasPrice: ethers.BigNumberish,
-  provider: ethers.JsonRpcProvider
+  provider: ethers.Provider
+
 ) {
   const authSigner = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
   const flashbotsProvider = await FlashbotsBundleProvider.create(
