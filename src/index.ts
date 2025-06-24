@@ -1,9 +1,10 @@
 import dotenv from 'dotenv';
-import { initListener } from './listener';
-
 dotenv.config();
 
-(async () => {
-  console.log('Starting MempoolSandwicher...');
+import { initListener } from './listener';
+
+async function main() {
   await initListener();
-})();
+}
+
+main().catch(console.error);
