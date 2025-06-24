@@ -9,7 +9,8 @@ export async function initListener() {
     try {
       const tx = await provider.getTransaction(txHash);
       if (tx && tx.to) {
-        await onTransaction(tx, new ethers.JsonRpcProvider(process.env.ETH_WS_URL));
+        await onTransaction(tx, provider);
+
       }
     } catch (err) {
       console.error('Error on pending tx:', err);
