@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { onTransaction } from './strategy.js';
+import { onTransaction } from './strategy';
 
 export async function initListener() {
   const wsUrl = process.env.ETH_WS_URL!;
