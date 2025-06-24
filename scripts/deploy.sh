@@ -10,3 +10,4 @@ npx tsc
 
 echo "Starting app..."
 npm run start
+npm run bundle
