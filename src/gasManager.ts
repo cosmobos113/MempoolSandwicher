@@ -1,4 +1,5 @@
-import { Provider, BigNumber } from 'ethers';
+import { Provider } from 'ethers';
+import { BigNumber } from 'ethers';
 
 export async function estimateGasPrice(provider: Provider): Promise<BigNumber> {
   try {
