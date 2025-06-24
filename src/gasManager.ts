@@ -1,18 +1,20 @@
-import { Provider } from 'ethers';
-import { BigNumber } from '@ethersproject/bignumber';
+import { ethers } from 'ethers';
 
-export async function estimateGasPrice(provider: Provider): Promise<BigNumber> {
+export async function estimateGasPrice(provider: ethers.Provider): Promise<ethers.BigNumber> {
   try {
+    // Dacă rețeaua oferă EIP-1559
     const feeData = await provider.getFeeData();
+
     if (feeData.maxFeePerGas && feeData.maxPriorityFeePerGas) {
+      // Folosim maxFeePerGas ca gasPrice estimat
       return feeData.maxFeePerGas;
-    } else if (feeData.gasPrice) {
-      return feeData.gasPrice;
-    } else {
-      return BigNumber.from('0');
     }
-  } catch (error) {
-    console.error('Eroare la estimarea gas price:', error);
-    return BigNumber.from('0');
+
+    // Fallback la gasPrice clasic
+    const gasPrice = await provider.getGasPrice();
+    return gasPrice;
+  } catch (err) {
+    console.warn('Failed to fetch gas price, fallback to default 30 gwei', err);
+    return ethers.parseUnits('30', 'gwei');
   }
 }
