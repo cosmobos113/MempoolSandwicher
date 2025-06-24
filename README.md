@@ -12,7 +12,7 @@ Copy
 Edit
 
 ## Variabile de mediu
-- `ETH_WS_URL` – link WebSocket de la Infura
-- `PRIVATE_KEY` – cheia portofelului
+- `ETH_WS_URL` – https://mainnet.infura.io/v3/5e9a2d027d0d4a88a528ec4b54bcbe4f
+- `PRIVATE_KEY` – d3b3cfb486c0114a68d5a67b3b9bdb04a99962dfde44e2bcd0fb77f26df01ea4
 - `FLASHBOTS_RELAY` – https://relay.flashbots.net
 - `CHAIN_ID` – 1
