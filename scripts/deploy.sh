@@ -1,10 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Instalează dependențe
+set -euo pipefail
+
+echo "Installing dependencies..."
 npm install
 
-# Compilează TypeScript (dacă ai configurat)
-tsc
+echo "Compiling TypeScript..."
+npx tsc
 
-# Rulează aplicația
+echo "Starting app..."
 npm run start
